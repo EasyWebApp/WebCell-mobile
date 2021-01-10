@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "target": "ES5",
+        "module": "ES2020",
+        "moduleResolution": "Node",
+        "experimentalDecorators": true,
+        "jsx": "react",
+        "jsxFactory": "createCell",
+        "jsxFragmentFactory": "Fragment",
+        "lib": ["ES2020", "DOM"]
+    },
+    "include": ["src/**/*"]
+}

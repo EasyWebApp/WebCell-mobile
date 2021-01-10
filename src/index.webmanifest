@@ -1,0 +1,20 @@
+{
+  "name": "WebCell mobile scaffold",
+  "short_name": "WC demo",
+  "start_url": ".",
+  "description": "Mobile App scaffold of WebCell v2",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "lang": "en-US",
+  "dir": "ltr",
+  "theme_color": "rgba(0,0,0,0.5)",
+  "background_color": "transparent",
+  "icons": [
+    {
+      "src": "image/WebCell-0.png",
+      "type": "image/png",
+      "sizes": "300x300"
+    }
+  ]
+}
