@@ -12,6 +12,7 @@
         "url": "https://github.com/EasyWebApp/mobile/issues"
     },
     "dependencies": {
+        "@material/mwc-button": "^0.20.0",
         "@material/mwc-drawer": "^0.20.0",
         "@material/mwc-icon-button": "^0.20.0",
         "@material/mwc-list": "^0.20.0",
@@ -22,8 +23,8 @@
         "material-cell": "^2.0.0-rc.2",
         "mobx": "5.15.7",
         "mobx-web-cell": "^0.3.4",
-        "web-cell": "^2.3.0-beta.6",
-        "web-utility": "^2.4.1"
+        "web-cell": "^2.3.0-rc.2",
+        "web-utility": "^2.4.4"
     },
     "devDependencies": {
         "husky": "^4.3.7",

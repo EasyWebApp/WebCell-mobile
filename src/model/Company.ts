@@ -3,10 +3,19 @@ import { service } from './service';
 
 export type WorkType = '996' | '955';
 
+export interface Evidence {
+    title: string;
+    href?: string;
+}
+
 export interface Company {
-    id: string;
     name: string;
-    score: number;
+    url?: string;
+    city: string;
+    rule: string;
+    evidences: Evidence[];
+    date: string;
+    comment_url: string;
 }
 
 export class CompanyModel {
@@ -16,6 +25,8 @@ export class CompanyModel {
     async getList(type: WorkType) {
         const { body } = await service.get<Company[]>(`${type}.json`);
 
-        return (this.list = body.sort(({ score: A }, { score: B }) => B - A));
+        return (this.list = body.sort(({ date: A }, { date: B }) =>
+            B.localeCompare(A)
+        ));
     }
 }
