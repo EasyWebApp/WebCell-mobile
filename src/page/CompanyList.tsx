@@ -26,7 +26,7 @@ export class CompanyList extends mixin<CompanyListProps>() {
     type: WorkType = '996';
 
     connectedCallback() {
-        this.classList.add('row');
+        this.classList.add('row', 'm-0', 'py-2');
 
         company.getList(this.type);
 
@@ -38,8 +38,11 @@ export class CompanyList extends mixin<CompanyListProps>() {
 
         return list.map(
             ({ name, url, city, rule, evidences, date, comment_url }) => (
-                <div className="col-12 col-sm-6 col-md-4 col-lg-3" key={name}>
-                    <div className="mdc-card mx-3 my-2">
+                <div
+                    className="col-12 col-sm-6 col-md-4 col-lg-3 my-2"
+                    key={name}
+                >
+                    <div className="mdc-card h-100">
                         <h3 className="h5 text-truncate pt-3 px-3">
                             {url ? (
                                 <a target="_blank" href={url}>
@@ -61,7 +64,7 @@ export class CompanyList extends mixin<CompanyListProps>() {
                                 </li>
                             ))}
                         </ol>
-                        <div className="mdc-card__actions justify-content-between px-3">
+                        <div className="mdc-card__actions flex-fill align-items-end justify-content-between px-3">
                             <time>{date}</time>
                             <a
                                 className="text-decoration-none"

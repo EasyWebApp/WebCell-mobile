@@ -4,7 +4,7 @@ import { CellRouter } from 'cell-router/source';
 import type {} from 'material-cell';
 import '@material/mwc-drawer';
 import '@material/mwc-list';
-import '@material/mwc-top-app-bar';
+import '@material/mwc-top-app-bar-fixed';
 import '@material/mwc-icon-button';
 
 import { history } from '../model';
@@ -40,11 +40,9 @@ export function PageBox() {
                 </mwc-list-item>
             </mwc-list>
 
-            <div slot="appContent">
-                <mwc-top-app-bar>
-                    <mwc-icon-button slot="navigationIcon" icon="menu" />
-                    <div slot="title">Anti 996</div>
-                </mwc-top-app-bar>
+            <mwc-top-app-bar-fixed slot="appContent">
+                <mwc-icon-button slot="navigationIcon" icon="menu" />
+                <div slot="title">Anti 996</div>
 
                 <CellRouter
                     history={history}
@@ -52,7 +50,7 @@ export function PageBox() {
                         { paths: ['', 'companies'], component: CompanyList }
                     ]}
                 />
-            </div>
+            </mwc-top-app-bar-fixed>
         </mwc-drawer>
     );
 }
