@@ -1,4 +1,3 @@
-import { delegate } from 'web-utility';
 import { FC } from 'web-cell';
 import { createRouter } from 'cell-router';
 
@@ -10,36 +9,25 @@ import { CompanyList } from './CompanyList';
 
 const { Route } = createRouter();
 
-document.addEventListener(
-    'MDCTopAppBar:nav',
-    ({ target }) => ((target as HTMLElement).closest('md-drawer').open = true)
-);
-
-document.addEventListener(
-    'click',
-    delegate(
-        'md-drawer > md-list a',
-        (_, link) => (link.closest('md-drawer').open = false)
-    )
-);
-
 export const PageBox: FC = () => (
-    <>
+    <div classList="d-flex flex-column vh-100">
         <Drawer title="Anti 996">
             <md-list>
                 <md-list-item>
-                    <a className="stretched-link" href="companies?type=996">
+                    <a className="stretched-link" href="#?type=996">
                         996
                     </a>
                 </md-list-item>
                 <md-list-item>
-                    <a className="stretched-link" href="companies?type=955">
+                    <a className="stretched-link" href="#?type=955">
                         955
                     </a>
                 </md-list-item>
             </md-list>
         </Drawer>
 
-        {/* <Route path="" component={CompanyList} /> */}
-    </>
+        <div className="flex-fill overflow-auto">
+            <Route path="" component={CompanyList} />
+        </div>
+    </div>
 );

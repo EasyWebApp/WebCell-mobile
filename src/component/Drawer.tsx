@@ -1,6 +1,7 @@
 import { OffcanvasBox, OffcanvasBoxProps } from 'boot-cell';
 import { observable } from 'mobx';
-import { WebCell, attribute, component, observer } from 'web-cell';
+import { WebCell, attribute, component, observer, on } from 'web-cell';
+
 import '@material/web/icon/icon';
 import '@material/web/iconbutton/icon-button';
 
@@ -18,46 +19,35 @@ export class Drawer extends HTMLElement implements WebCell<DrawerProps> {
     @observable
     accessor open = false;
 
-    @observable
-    accessor narrow = false;
-
-    updateScreen = () => (this.narrow = innerWidth < innerHeight);
-
     mountedCallback() {
-        this.updateScreen();
-
-        globalThis.addEventListener('resize', this.updateScreen);
+        this.classList.add('sticky-top');
     }
 
-    disconnectedCallback() {
-        globalThis.removeEventListener('resize', this.updateScreen);
+    @on('click', 'a[href], md-list-item')
+    handleItemClick() {
+        this.open = false;
     }
 
     renderContent() {
-        const { title, narrow, open } = this;
+        const { title, open } = this;
 
         return (
             <>
-                <div className="sticky-top shadow-sm d-flex justify-content-between align-items-center p-3">
+                <div className="shadow-sm d-flex justify-content-between align-items-center p-3">
                     {title}
 
-                    {narrow && (
-                        <md-icon-button onClick={() => (this.open = true)}>
-                            <md-icon>menu</md-icon>
-                        </md-icon-button>
-                    )}
+                    <md-icon-button onClick={() => (this.open = true)}>
+                        <md-icon>menu</md-icon>
+                    </md-icon-button>
                 </div>
-                {narrow ? (
-                    <OffcanvasBox
-                        title={title}
-                        show={open}
-                        onHide={() => (this.open = false)}
-                    >
-                        <slot />
-                    </OffcanvasBox>
-                ) : (
+
+                <OffcanvasBox
+                    title={title}
+                    show={open}
+                    onHide={() => (this.open = false)}
+                >
                     <slot />
-                )}
+                </OffcanvasBox>
             </>
         );
     }

@@ -1,89 +1,94 @@
-import {
-    WebCellProps,
-    component,
-    mixin,
-    watch,
-    attribute,
-    createCell
-} from 'web-cell';
-import { observer } from 'mobx-web-cell';
-import '@material/mwc-button';
+import { WebCell, component, reaction, attribute, observer } from 'web-cell';
+import { observable } from 'mobx';
+import { Card, CardBody, CardTitle } from 'boot-cell';
 
-import { WorkType, company } from '../model';
+import '@material/web/button/filled-button';
+import '@material/web/icon/icon';
 
-export interface CompanyListProps extends WebCellProps {
+import { Button } from '../component/Button';
+import companyStore, { WorkType, Company } from '../model/Company';
+
+export interface CompanyListProps {
     type: WorkType;
 }
 
+export interface CompanyList extends WebCell<CompanyListProps> {}
+
+@component({ tagName: 'company-list' })
 @observer
-@component({
-    tagName: 'company-list',
-    renderTarget: 'children'
-})
-export class CompanyList extends mixin<CompanyListProps>() {
+export class CompanyList
+    extends HTMLElement
+    implements WebCell<CompanyListProps>
+{
     @attribute
-    @watch
-    type: WorkType = '996';
+    @observable
+    accessor type: WorkType = '996';
 
-    connectedCallback() {
-        this.classList.add('row', 'm-0', 'py-2');
-
-        company.getList(this.type);
-
-        super.connectedCallback();
+    @reaction(({ type }) => type)
+    mountedCallback() {
+        companyStore.getList(this.type);
     }
 
-    render() {
-        const { list } = company;
+    renderCase = ({
+        name,
+        url,
+        city,
+        rule,
+        evidences,
+        date,
+        comment_url
+    }: Company) => (
+        <Card className="shadow-sm h-100">
+            <CardBody className="d-flex flex-column">
+                <CardTitle className="h5 text-truncate">
+                    {url ? (
+                        <a target="_blank" href={url}>
+                            {name}
+                        </a>
+                    ) : (
+                        name
+                    )}
+                </CardTitle>
+                <div className="flex-fill">
+                    <p className="text-muted">{city}</p>
 
-        return list.map(
-            ({ name, url, city, rule, evidences, date, comment_url }) => (
-                <div
-                    className="col-12 col-sm-6 col-md-4 col-lg-3 my-2"
-                    key={name}
-                >
-                    <div className="mdc-card h-100">
-                        <h3 className="h5 text-truncate pt-3 px-3">
-                            {url ? (
-                                <a target="_blank" href={url}>
-                                    {name}
+                    <p>{rule}</p>
+                    <ol>
+                        {evidences.map(({ href, title }) => (
+                            <li key={title}>
+                                <a target="_blank" href={href}>
+                                    {title}
                                 </a>
-                            ) : (
-                                name
-                            )}
-                        </h3>
-                        <p className="text-muted px-3">{city}</p>
-
-                        <p className="px-3">{rule}</p>
-                        <ol>
-                            {evidences.map(({ href, title }) => (
-                                <li>
-                                    <a target="_blank" href={href}>
-                                        {title}
-                                    </a>
-                                </li>
-                            ))}
-                        </ol>
-                        <div className="mdc-card__actions flex-fill align-items-end justify-content-between px-3">
-                            <time>{date}</time>
-                            <a
-                                className="text-decoration-none"
-                                target="_blank"
-                                href={comment_url}
-                            >
-                                <mwc-button
-                                    className="mdc-card__action mdc-card__action--button"
-                                    unelevated
-                                    dense
-                                    icon="edit"
-                                >
-                                    Comment
-                                </mwc-button>
-                            </a>
-                        </div>
-                    </div>
+                            </li>
+                        ))}
+                    </ol>
                 </div>
-            )
+                <div className="d-flex align-items-center justify-content-between gap-3">
+                    <time className="text-truncate" title={date}>
+                        {date}
+                    </time>
+                    <Button target="_blank" href={comment_url} icon="edit">
+                        Comment
+                    </Button>
+                </div>
+            </CardBody>
+        </Card>
+    );
+
+    render() {
+        const { list } = companyStore;
+
+        return (
+            <div className="row m-0 py-2">
+                {list.map(item => (
+                    <div
+                        className="col-12 col-sm-6 col-md-4 col-lg-3 my-2"
+                        key={item.name}
+                    >
+                        {this.renderCase(item)}
+                    </div>
+                ))}
+            </div>
         );
     }
 }
