@@ -1,11 +1,9 @@
 import { WebCell, component, reaction, attribute, observer } from 'web-cell';
 import { observable } from 'mobx';
-import { Card, CardBody, CardTitle } from 'boot-cell';
 
-import '@material/web/button/filled-button';
-import '@material/web/icon/icon';
+import 'mdui/components/button';
+import 'mdui/components/card';
 
-import { Button } from '../component/Button';
 import companyStore, { WorkType, Company } from '../model/Company';
 
 export interface CompanyListProps {
@@ -38,41 +36,43 @@ export class CompanyList
         date,
         comment_url
     }: Company) => (
-        <Card className="shadow-sm h-100">
-            <CardBody className="d-flex flex-column">
-                <CardTitle className="h5 text-truncate">
-                    {url ? (
-                        <a target="_blank" href={url}>
-                            {name}
-                        </a>
-                    ) : (
-                        name
-                    )}
-                </CardTitle>
-                <div className="flex-fill">
-                    <p className="text-muted">{city}</p>
+        <mdui-card className="h-100 d-flex flex-column p-3">
+            <h2 className="h5 text-truncate" title={name}>
+                {url ? (
+                    <a
+                        className="text-decoration-none"
+                        target="_blank"
+                        href={url}
+                    >
+                        {name}
+                    </a>
+                ) : (
+                    name
+                )}
+            </h2>
+            <div className="flex-fill">
+                <p className="text-muted">{city}</p>
 
-                    <p>{rule}</p>
-                    <ol>
-                        {evidences.map(({ href, title }) => (
-                            <li key={title}>
-                                <a target="_blank" href={href}>
-                                    {title}
-                                </a>
-                            </li>
-                        ))}
-                    </ol>
-                </div>
-                <div className="d-flex align-items-center justify-content-between gap-3">
-                    <time className="text-truncate" title={date}>
-                        {date}
-                    </time>
-                    <Button target="_blank" href={comment_url} icon="edit">
-                        Comment
-                    </Button>
-                </div>
-            </CardBody>
-        </Card>
+                <p>{rule}</p>
+                <ol>
+                    {evidences.map(({ href, title }) => (
+                        <li key={title}>
+                            <a target="_blank" href={href}>
+                                {title}
+                            </a>
+                        </li>
+                    ))}
+                </ol>
+            </div>
+            <div className="d-flex align-items-center justify-content-between gap-3">
+                <time className="text-truncate" title={date}>
+                    {date}
+                </time>
+                <mdui-button target="_blank" href={comment_url} icon="edit">
+                    Comment
+                </mdui-button>
+            </div>
+        </mdui-card>
     );
 
     render() {
