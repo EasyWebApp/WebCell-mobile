@@ -1,33 +1,53 @@
-import { FC } from 'web-cell';
+import { attribute, component, observer } from 'web-cell';
 import { createRouter } from 'cell-router';
+import { observable } from 'mobx';
 
-import '@material/web/list/list';
-import '@material/web/list/list-item';
+import 'mdui/components/button-icon';
+import 'mdui/components/list';
+import 'mdui/components/list-item';
+import 'mdui/components/top-app-bar';
+import 'mdui/components/top-app-bar-title';
+import 'mdui/components/navigation-drawer';
 
-import { Drawer } from '../component/Drawer';
 import { CompanyList } from './CompanyList';
 
 const { Route } = createRouter();
 
-export const PageBox: FC = () => (
-    <div classList="d-flex flex-column vh-100">
-        <Drawer title="Anti 996">
-            <md-list>
-                <md-list-item>
-                    <a className="stretched-link" href="#?type=996">
-                        996
-                    </a>
-                </md-list-item>
-                <md-list-item>
-                    <a className="stretched-link" href="#?type=955">
-                        955
-                    </a>
-                </md-list-item>
-            </md-list>
-        </Drawer>
+@component({ tagName: 'page-box' })
+@observer
+export class PageBox extends HTMLElement {
+    @attribute
+    @observable
+    accessor drawerOpen = false;
 
-        <div className="flex-fill overflow-auto">
-            <Route path="" component={CompanyList} />
-        </div>
-    </div>
-);
+    render() {
+        const { drawerOpen } = this;
+
+        return (
+            <>
+                <mdui-top-app-bar>
+                    <mdui-button-icon
+                        icon="menu"
+                        onClick={() => (this.drawerOpen = !this.drawerOpen)}
+                    />
+                    <mdui-top-app-bar-title>Anti 996</mdui-top-app-bar-title>
+                    <div className="flex-fill" />
+                    <mdui-button-icon icon="more_vert" />
+                </mdui-top-app-bar>
+
+                <mdui-navigation-drawer
+                    open={drawerOpen}
+                    closeOnOverlayClick
+                    onClosed={() => (this.drawerOpen = false)}
+                >
+                    <mdui-list onClick={() => (this.drawerOpen = false)}>
+                        <mdui-list-item href="#?type=996">996</mdui-list-item>
+                        <mdui-list-item href="#?type=955">955</mdui-list-item>
+                    </mdui-list>
+                </mdui-navigation-drawer>
+
+                <Route path="" component={CompanyList} />
+            </>
+        );
+    }
+}

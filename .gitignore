@@ -3,5 +3,4 @@ package-lock.json
 yarn.lock
 .parcel-cache/
 dist/
-.vscode/settings.json
 .vercel/

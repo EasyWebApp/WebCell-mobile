@@ -1,0 +1,5 @@
+{
+    "html.customData": ["./node_modules/mdui/html-data.en.json"],
+    "css.customData": ["./node_modules/mdui/css-data.en.json"],
+    "typescript.tsdk": "./node_modules/typescript/lib"
+}
