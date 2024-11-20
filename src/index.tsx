@@ -4,6 +4,7 @@ import { DOMRenderer } from 'dom-renderer';
 import { configure } from 'mobx';
 
 import { PageBox } from './page';
+import { renderMode } from './utility';
 
 auto();
 
@@ -34,4 +35,6 @@ serviceWorker?.addEventListener('controllerchange', () =>
     window.location.reload()
 );
 
-documentReady.then(() => new DOMRenderer().render(<PageBox />));
+documentReady.then(() =>
+    new DOMRenderer().render(<PageBox />, document.body, renderMode)
+);

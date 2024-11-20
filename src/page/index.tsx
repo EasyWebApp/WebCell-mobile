@@ -1,19 +1,20 @@
-import { attribute, component, observer } from 'web-cell';
 import { createRouter } from 'cell-router';
 import { observable } from 'mobx';
+import { attribute, component, observer } from 'web-cell';
 
 import 'mdui/components/button-icon';
 import 'mdui/components/list';
 import 'mdui/components/list-item';
+import 'mdui/components/navigation-drawer';
 import 'mdui/components/top-app-bar';
 import 'mdui/components/top-app-bar-title';
-import 'mdui/components/navigation-drawer';
 
+import { renderMode } from '../utility';
 import { CompanyList } from './CompanyList';
 
 const { Route } = createRouter();
 
-@component({ tagName: 'page-box' })
+@component({ tagName: 'page-box', renderMode })
 @observer
 export class PageBox extends HTMLElement {
     @attribute

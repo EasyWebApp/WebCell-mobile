@@ -1,10 +1,11 @@
-import { WebCell, component, reaction, attribute, observer } from 'web-cell';
 import { observable } from 'mobx';
+import { WebCell, attribute, component, observer, reaction } from 'web-cell';
 
 import 'mdui/components/button';
 import 'mdui/components/card';
 
-import companyStore, { WorkType, Company } from '../model/Company';
+import companyStore, { Company, WorkType } from '../model/Company';
+import { renderMode } from '../utility';
 
 export interface CompanyListProps {
     type: WorkType;
@@ -12,7 +13,7 @@ export interface CompanyListProps {
 
 export interface CompanyList extends WebCell<CompanyListProps> {}
 
-@component({ tagName: 'company-list' })
+@component({ tagName: 'company-list', renderMode })
 @observer
 export class CompanyList
     extends HTMLElement

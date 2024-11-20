@@ -33,4 +33,4 @@ jobs:
                   [[ "$TOPICS" ]]  &&  {
                     gh api --method PUT "repos/$REPOSITORY/topics" -f "names[]"
                     gh repo edit "$REPOSITORY" --add-topic "$TOPICS"
-                  } || true
+                  }
