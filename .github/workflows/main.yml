@@ -17,21 +17,17 @@ jobs:
               with:
                   version: 9
             - uses: actions/setup-node@v4
-              if: ${{ !env.VERCEL_TOKEN || !env.VERCEL_ORG_ID || !env.VERCEL_PROJECT_ID }}
               with:
                   node-version: 20
                   cache: pnpm
             - name: Install Dependencies
-              if: ${{ !env.VERCEL_TOKEN || !env.VERCEL_ORG_ID || !env.VERCEL_PROJECT_ID }}
               run: pnpm i --frozen-lockfile
 
             - name: Build Production
-              if: ${{ !env.VERCEL_TOKEN || !env.VERCEL_ORG_ID || !env.VERCEL_PROJECT_ID }}
               run: pnpm build
 
-            - name: Deploy Production
+            - name: Deploy to GitHub pages
               uses: peaceiris/actions-gh-pages@v4
-              if: ${{ !env.VERCEL_TOKEN || !env.VERCEL_ORG_ID || !env.VERCEL_PROJECT_ID }}
               with:
                   publish_dir: ./dist
                   personal_token: ${{ secrets.GITHUB_TOKEN }}
