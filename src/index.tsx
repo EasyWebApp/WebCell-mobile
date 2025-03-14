@@ -1,7 +1,7 @@
 import { auto } from 'browser-unhandled-rejection';
-import { serviceWorkerUpdate, documentReady } from 'web-utility';
 import { DOMRenderer } from 'dom-renderer';
 import { configure } from 'mobx';
+import { documentReady, serviceWorkerUpdate } from 'web-utility';
 
 import { PageBox } from './page';
 import { renderMode } from './utility';

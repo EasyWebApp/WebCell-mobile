@@ -1,8 +1,8 @@
-import { observable } from 'mobx';
-import { WebCell, attribute, component, observer, reaction } from 'web-cell';
-
 import 'mdui/components/button';
 import 'mdui/components/card';
+
+import { observable } from 'mobx';
+import { attribute, component, observer, reaction, WebCell } from 'web-cell';
 
 import companyStore, { Company, WorkType } from '../model/Company';
 import { renderMode } from '../utility';
@@ -37,36 +37,37 @@ export class CompanyList
         date,
         comment_url
     }: Company) => (
-        <mdui-card className="h-100 d-flex flex-column p-3">
-            <h2 className="h5 text-truncate" title={name}>
+        <mdui-card className="flex h-full flex-col gap-4 p-4">
+            <h2 className="font-bold text-blue-500" title={name}>
                 {url ? (
-                    <a
-                        className="text-decoration-none"
-                        target="_blank"
-                        href={url}
-                    >
+                    <a target="_blank" href={url} rel="noreferrer">
                         {name}
                     </a>
                 ) : (
                     name
                 )}
             </h2>
-            <div className="flex-fill">
-                <p className="text-muted">{city}</p>
-
+            <div className="flex flex-1 flex-col gap-4">
+                <p className="text-neutral-500">{city}</p>
                 <p>{rule}</p>
-                <ol>
+
+                <ol className="list-inside list-decimal">
                     {evidences.map(({ href, title }) => (
                         <li key={title}>
-                            <a target="_blank" href={href}>
+                            <a
+                                target="_blank"
+                                className="text-blue-500 underline"
+                                href={href}
+                                rel="noreferrer"
+                            >
                                 {title}
                             </a>
                         </li>
                     ))}
                 </ol>
             </div>
-            <div className="d-flex align-items-center justify-content-between gap-3">
-                <time className="text-truncate" title={date}>
+            <div className="flex items-center justify-between">
+                <time className="truncate" title={date}>
                     {date}
                 </time>
                 <mdui-button target="_blank" href={comment_url} icon="edit">
@@ -80,16 +81,11 @@ export class CompanyList
         const { list } = companyStore;
 
         return (
-            <div className="row m-0 py-2">
+            <ul className="grid gap-4 p-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {list.map(item => (
-                    <div
-                        className="col-12 col-sm-6 col-md-4 col-lg-3 my-2"
-                        key={item.name}
-                    >
-                        {this.renderCase(item)}
-                    </div>
+                    <li key={item.name}>{this.renderCase(item)}</li>
                 ))}
-            </div>
+            </ul>
         );
     }
 }

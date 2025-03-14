@@ -22,7 +22,7 @@ export class CompanyModel {
     async getList(type: WorkType) {
         const { body } = await service.get<Company[]>(`${type}.json`);
 
-        return (this.list = body.sort(({ date: A }, { date: B }) =>
+        return (this.list = body!.sort(({ date: A }, { date: B }) =>
             B.localeCompare(A)
         ));
     }
