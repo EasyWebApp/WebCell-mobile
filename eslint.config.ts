@@ -1,5 +1,6 @@
 import cspellPlugin from '@cspell/eslint-plugin';
 import eslint from '@eslint/js';
+import html from '@html-eslint/eslint-plugin';
 import stylistic from '@stylistic/eslint-plugin';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import react from 'eslint-plugin-react';
@@ -123,6 +124,11 @@ export default tsEslint.config(
                 }
             ]
         }
+    },
+    {
+        ...html.configs['flat/recommended'],
+        files: ['**/*.html'],
+        rules: { '@html-eslint/sort-attrs': 'error' }
     },
     eslintConfigPrettier
 );

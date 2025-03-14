@@ -45,6 +45,12 @@ importers:
       '@eslint/js':
         specifier: ^9.22.0
         version: 9.22.0
+      '@html-eslint/eslint-plugin':
+        specifier: ^0.35.2
+        version: 0.35.2
+      '@html-eslint/parser':
+        specifier: ^0.35.2
+        version: 0.35.2
       '@parcel/config-default':
         specifier: ~2.13.3
         version: 2.13.3(@parcel/core@2.13.3(@swc/helpers@0.5.15))(@swc/helpers@0.5.15)(postcss@8.5.3)(terser@5.36.0)(typescript@5.8.2)
@@ -885,6 +891,18 @@ packages:
 
   '@floating-ui/utils@0.2.8':
     resolution: {integrity: sha512-kym7SodPp8/wloecOpcmSnWJsK7M0E5Wg8UcFA+uO4B9s5d0ywXOEro/8HM9x0rW+TljRzul/14UYz3TleT3ig==}
+
+  '@html-eslint/eslint-plugin@0.35.2':
+    resolution: {integrity: sha512-7CFxSpzu55Og457dEAAcSU+L7PNeYbeHD8HXDmAmHlbBpKjUHVJkLe0pLfuC6eV6ZpV5K2N9qk5SVu2dPFCC/w==}
+
+  '@html-eslint/parser@0.35.2':
+    resolution: {integrity: sha512-NEr63Ak4Fr+VdI0svNpaPwROoimuO6djCJ2FKtbDPpCSJslCSerbB3+jorhByBO3+XyaJH2uZul44EuXIPeq3Q==}
+
+  '@html-eslint/template-parser@0.35.2':
+    resolution: {integrity: sha512-SauXPU4JO02Gf6sjHMZM4OFn4f2F6mRi0N6fZSPQaoBJqNL14Z4CXgN4QsvIAJ0zuDu9ssRR7TELFNZteTlS0w==}
+
+  '@html-eslint/template-syntax-parser@0.35.2':
+    resolution: {integrity: sha512-y+JAzuNVzFvsmgu9tz2wr2lY0brGwPnrUTUIFsIooAZFPjESg/4SfmCTzo8/Y7QquGsdzYvvO15UBgT2Jc/Pdg==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -2261,6 +2279,9 @@ packages:
   es-errors@1.3.0:
     resolution: {integrity: sha512-Zf5H2Kxt2xjTvbJvP2ZWLEICxA6j+hAmMzIlypy4xcBg1vKVnx89Wy0GbS+kf5cwCVFFzdCFh2XSCFNULS6csw==}
     engines: {node: '>= 0.4'}
+
+  es-html-parser@0.1.1:
+    resolution: {integrity: sha512-SNHdEpKkN4nWZ3sFq9AxPlaUzPKJewGh59JrVS2355vELTOFygyf/lbfDDIONuGvYrhvAHoaUd+sK9UGaGrKUg==}
 
   es-iterator-helpers@1.2.1:
     resolution: {integrity: sha512-uDn+FE1yrDzyC0pCo961B2IHbdM8y/ACZsKD4dG6WqrjV53BADjwa7D+1aom2rsNVfLyDgU/eigvlJGJ08OQ4w==}
@@ -5354,6 +5375,22 @@ snapshots:
 
   '@floating-ui/utils@0.2.8': {}
 
+  '@html-eslint/eslint-plugin@0.35.2':
+    dependencies:
+      '@html-eslint/template-parser': 0.35.2
+      '@html-eslint/template-syntax-parser': 0.35.2
+
+  '@html-eslint/parser@0.35.2':
+    dependencies:
+      '@html-eslint/template-syntax-parser': 0.35.2
+      es-html-parser: 0.1.1
+
+  '@html-eslint/template-parser@0.35.2':
+    dependencies:
+      es-html-parser: 0.1.1
+
+  '@html-eslint/template-syntax-parser@0.35.2': {}
+
   '@humanfs/core@0.19.1': {}
 
   '@humanfs/node@0.16.6':
@@ -7192,6 +7229,8 @@ snapshots:
   es-define-property@1.0.1: {}
 
   es-errors@1.3.0: {}
+
+  es-html-parser@0.1.1: {}
 
   es-iterator-helpers@1.2.1:
     dependencies:
