@@ -1,17 +1,14 @@
 import 'mdui/components/button-icon';
 import 'mdui/components/list';
 import 'mdui/components/list-item';
-import 'mdui/components/top-app-bar.js';
-import 'mdui/components/top-app-bar-title.js';
-import 'mdui/components/navigation-drawer.js';
-import 'mdui/components/layout.js';
-import 'mdui/components/layout-item.js';
-import 'mdui/components/layout-main.js';
+import 'mdui/components/top-app-bar';
+import 'mdui/components/top-app-bar-title';
+import 'mdui/components/navigation-drawer';
+import 'mdui/components/layout';
+import 'mdui/components/layout-item';
+import 'mdui/components/layout-main';
 
 import { createRouter } from 'cell-router';
-import type { Layout } from 'mdui/components/layout.js';
-import type { LayoutItem } from 'mdui/components/layout-item.js';
-import type { LayoutMain } from 'mdui/components/layout-main.js';
 import { observable } from 'mobx';
 import { attribute, component, observer } from 'web-cell';
 
