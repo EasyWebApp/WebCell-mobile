@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       '@tailwindcss/postcss':
-        specifier: ^4.0.10
+        specifier: ^4.0.14
         version: 4.0.14
       browser-unhandled-rejection:
         specifier: ^1.0.2
@@ -30,11 +30,11 @@ importers:
         specifier: ^6.13.6
         version: 6.13.6
       tailwindcss:
-        specifier: ^4.0.10
+        specifier: ^4.0.14
         version: 4.0.14
       web-cell:
-        specifier: ^3.0.3
-        version: 3.0.3(typescript@5.8.2)
+        specifier: ^3.0.4
+        version: 3.0.4(typescript@5.8.2)
       web-utility:
         specifier: ^4.4.3
         version: 4.4.3(typescript@5.8.2)
@@ -4291,8 +4291,8 @@ packages:
   weak-lru-cache@1.2.2:
     resolution: {integrity: sha512-DEAoo25RfSYMuTGc9vPJzZcZullwIqRDSI9LOy+fkCJPi6hykCnfKaXTuPBDuXAUcqHXyOgFtHNp/kB2FjYHbw==}
 
-  web-cell@3.0.3:
-    resolution: {integrity: sha512-8bEUt2GpB5+19EXqZS/ZM0tBx6G0DYfSEwEuX5iCpQ5AP7lX2ITLK3UTn4L7wKdRS+RG9g0JMIoB+EOyYkCQBA==}
+  web-cell@3.0.4:
+    resolution: {integrity: sha512-JGWgakfkiu84FiUQxuw66QfQpPyTXlTejCZ9MLm46c96ppAtYzDgWYbVXt8jIOV6jVwG7aZzqO4v/rnSBTAaKQ==}
     peerDependencies:
       '@webcomponents/webcomponentsjs': ^2.8
       core-js: ^3
@@ -6735,7 +6735,7 @@ snapshots:
       mobx: 6.13.6
       regenerator-runtime: 0.14.1
       urlpattern-polyfill: 10.0.0
-      web-cell: 3.0.3(typescript@5.8.2)
+      web-cell: 3.0.4(typescript@5.8.2)
       web-utility: 4.4.3(typescript@5.8.2)
     transitivePeerDependencies:
       - '@webcomponents/webcomponentsjs'
@@ -9332,7 +9332,7 @@ snapshots:
 
   weak-lru-cache@1.2.2: {}
 
-  web-cell@3.0.3(typescript@5.8.2):
+  web-cell@3.0.4(typescript@5.8.2):
     dependencies:
       '@swc/helpers': 0.5.15
       dom-renderer: 2.6.2(typescript@5.8.2)
