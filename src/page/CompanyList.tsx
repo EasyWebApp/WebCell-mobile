@@ -23,9 +23,7 @@ export class CompanyList
     @observable
     accessor type: WorkType = '996';
 
-    @reaction(function (this: CompanyList) {
-        return this.type;
-    })
+    @reaction(({ type }: CompanyList) => type)
     mountedCallback() {
         companyStore.getList(this.type);
     }
