@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@tailwindcss/postcss':
-        specifier: ^4.0.14
-        version: 4.0.14
       browser-unhandled-rejection:
         specifier: ^1.0.2
         version: 1.0.2
@@ -29,9 +26,6 @@ importers:
       mobx:
         specifier: ^6.13.6
         version: 6.13.6
-      tailwindcss:
-        specifier: ^4.0.14
-        version: 4.0.14
       web-cell:
         specifier: ^3.0.4
         version: 3.0.4(typescript@5.8.2)
@@ -66,12 +60,18 @@ importers:
       '@stylistic/eslint-plugin':
         specifier: ^4.2.0
         version: 4.2.0(eslint@9.22.0(jiti@2.4.2))(typescript@5.8.2)
+      '@tailwindcss/postcss':
+        specifier: ^4.0.14
+        version: 4.0.14
       '@types/eslint-config-prettier':
         specifier: ^6.11.3
         version: 6.11.3
       '@types/node':
         specifier: ^22.13.10
         version: 22.13.10
+      cross-env:
+        specifier: ^7.0.3
+        version: 7.0.3
       eslint:
         specifier: ^9.22.0
         version: 9.22.0(jiti@2.4.2)
@@ -111,6 +111,9 @@ importers:
       prettier-plugin-tailwindcss:
         specifier: ^0.6.11
         version: 0.6.11(prettier-plugin-css-order@2.1.2(postcss@8.5.3)(prettier@3.5.3))(prettier@3.5.3)
+      tailwindcss:
+        specifier: ^4.0.14
+        version: 4.0.14
       typescript:
         specifier: ~5.8.2
         version: 5.8.2
@@ -2031,6 +2034,11 @@ packages:
     peerDependenciesMeta:
       typescript:
         optional: true
+
+  cross-env@7.0.3:
+    resolution: {integrity: sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==}
+    engines: {node: '>=10.14', npm: '>=6', yarn: '>=1'}
+    hasBin: true
 
   cross-spawn@7.0.6:
     resolution: {integrity: sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==}
@@ -6859,6 +6867,10 @@ snapshots:
       parse-json: 5.2.0
     optionalDependencies:
       typescript: 5.8.2
+
+  cross-env@7.0.3:
+    dependencies:
+      cross-spawn: 7.0.6
 
   cross-spawn@7.0.6:
     dependencies:
