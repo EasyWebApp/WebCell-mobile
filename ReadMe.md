@@ -8,8 +8,20 @@ https://web-cell.dev/WebCell-mobile/
 
 [![CI & CD](https://github.com/EasyWebApp/WebCell-mobile/actions/workflows/main.yml/badge.svg)][2]
 
+
+
+## 🌏  Open in the Cloud 
+
+Click any of the buttons below to start a new development environment to demo or contribute to the codebase without having to install anything on your machine:
+
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)][3]
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)][4]
+[![Open in VS Code](https://img.shields.io/badge/Open%20in-VS%20Code-blue?logo=visualstudiocode)](https://vscode.dev/github/easywebapp/webcell-mobile)
+[![Open in Glitch](https://img.shields.io/badge/Open%20in-Glitch-blue?logo=glitch)](https://glitch.com/edit/#!/import/github/easywebapp/webcell-mobile)
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/easywebapp/webcell-mobile)
+[![Edit in Codesandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/easywebapp/webcell-mobile)
+[![Open in Repl.it](https://replit.com/badge/github/withastro/astro)](https://replit.com/github/easywebapp/webcell-mobile)
+[![Open in Codeanywhere](https://codeanywhere.com/img/open-in-codeanywhere-btn.svg)](https://app.codeanywhere.com/#https://github.com/easywebapp/webcell-mobile)
 
 ## Technology stack
 
