@@ -1,12 +1,12 @@
 import 'mdui/components/button-icon';
-import 'mdui/components/list';
-import 'mdui/components/list-item';
-import 'mdui/components/top-app-bar';
-import 'mdui/components/top-app-bar-title';
-import 'mdui/components/navigation-drawer';
 import 'mdui/components/layout';
 import 'mdui/components/layout-item';
 import 'mdui/components/layout-main';
+import 'mdui/components/list';
+import 'mdui/components/list-item';
+import 'mdui/components/navigation-drawer';
+import 'mdui/components/top-app-bar';
+import 'mdui/components/top-app-bar-title';
 
 import { createRouter } from 'cell-router';
 import { observable } from 'mobx';

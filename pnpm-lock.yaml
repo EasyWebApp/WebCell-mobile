@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       '@tailwindcss/postcss':
-        specifier: ^4.0.14
+        specifier: ^4.0.10
         version: 4.0.14
       browser-unhandled-rejection:
         specifier: ^1.0.2
@@ -30,7 +30,7 @@ importers:
         specifier: ^6.13.6
         version: 6.13.6
       tailwindcss:
-        specifier: ^4.0.14
+        specifier: ^4.0.10
         version: 4.0.14
       web-cell:
         specifier: ^3.0.3

@@ -128,7 +128,12 @@ export default tsEslint.config(
     {
         ...html.configs['flat/recommended'],
         files: ['**/*.html'],
-        rules: { '@html-eslint/sort-attrs': 'error' }
+        rules: {
+            '@html-eslint/sort-attrs': [
+                'error',
+                { priority: ['rel', 'name', 'id', 'type', 'class', 'style'] }
+            ]
+        }
     },
     eslintConfigPrettier
 );
